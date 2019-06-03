@@ -1,3 +1,29 @@
-<p>
-  add-car-model works!
-</p>
+<div class="example-container">
+  <form [formGroup]="carModelForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
+    <mat-form-field>
+      <mat-label>Fabricante</mat-label>
+      <mat-select placeholder="Selecione o Fabricante" formControlName="manufacturerId">
+        <mat-option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.id">{{ manufacturer.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="manufacturerId?.hasError('required')">
+        Fabricante é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Modelo" formControlName="model">
+      <mat-error *ngIf="model?.hasError('required')">
+        Modelo é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" matInput placeholder="Ano Modelo" formControlName="modelYear">
+      <mat-error *ngIf="modelYear?.hasError('required')">
+        Ano Modelo é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-button>Salvar</button>
+  </form>
+</div>
