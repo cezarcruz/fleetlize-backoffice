@@ -1,9 +1,8 @@
-.example-container {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
+mat-form-field {
+  margin-right: 2em;
+  width: 100%;
 }
 
-.example-container > * {
-  width: 100%;
+.actions button {
+  margin-right: 1.5em;
 }

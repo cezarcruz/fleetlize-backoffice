@@ -12,15 +12,22 @@ export class AddCarModelComponent implements OnInit {
 
   public manufacturers: Array<any>;
   public carModelForm: FormGroup;
-  constructor(private fb: FormBuilder, private carModelService: CarModelService, private manufacturerService: ManufacturerService) { }
+
+  constructor(private fb: FormBuilder,
+              private carModelService: CarModelService,
+              private manufacturerService: ManufacturerService) { }
 
   ngOnInit() {
     this.createForm();
     this.manufacturerService.getAll().subscribe((res: any) => {
       this.manufacturers = res.map((i: any) => {
-        return {'id': i.id, 'name': i.name}
+        return {id: i.id, name: i.name};
       });
-    })
+    });
+  }
+
+  public clear() {
+    this.carModelForm.reset();
   }
 
   private createForm() {
@@ -29,13 +36,11 @@ export class AddCarModelComponent implements OnInit {
       model: ['', Validators.required],
       modelYear: ['', Validators.required],
     });
-
   }
 
-  onSubmit(formDirective: FormGroupDirective): void {
+  onSubmit(formDirective: FormGroupDirective) {
     if (this.carModelForm.valid) {
       this.carModelService.saveCarModel(this.carModelForm.value).subscribe(res => {
-        console.log(res);
         formDirective.resetForm();
         this.carModelForm.reset();
       });
