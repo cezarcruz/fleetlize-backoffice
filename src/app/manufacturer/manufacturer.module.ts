@@ -1,9 +1,19 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { ManufacturerTableComponent } from './manufacturer-table/manufacturer-table.component';
+import { CommonModule } from '@angular/common';
+import { ManufacturerRouting } from './manufacturer.routing';
+import { CoreModule } from '../core/core.module';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    CommonModule,
+    MatTableModule,
+    ManufacturerRouting,
+    CoreModule,
+  ],
+  declarations: [
+    ManufacturerTableComponent
   ]
 })
 export class ManufacturerModule {
