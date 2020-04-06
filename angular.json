@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fleetlize-web": {
+    "fleet-backoffice": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,11 +17,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fleetlize-web",
+            "outputPath": "dist/fleet-backoffice",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -44,7 +45,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -53,6 +53,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -61,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fleetlize-web:build"
+            "browserTarget": "fleet-backoffice:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "fleetlize-web:build:production"
+              "browserTarget": "fleet-backoffice:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fleetlize-web:build"
+            "browserTarget": "fleet-backoffice:build"
           }
         },
         "test": {
@@ -109,15 +114,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "fleetlize-web:serve"
+            "devServerTarget": "fleet-backoffice:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "fleetlize-web:serve:production"
+              "devServerTarget": "fleet-backoffice:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "fleetlize-web"
+    }
+  },
+  "defaultProject": "fleet-backoffice",
+  "cli": {
+    "analytics": false
+  }
 }
