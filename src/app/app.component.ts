@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'fleet-root',
@@ -9,6 +10,9 @@ import { MediaMatcher } from '@angular/cdk/layout';
 export class AppComponent {
   title = 'fleetlize-backoffice';
   mobileQuery: MediaQueryList;
+
+  @ViewChild('commandbarSidenav', {static: true})
+  sidenav: MatSidenav;
 
   constructor(media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');

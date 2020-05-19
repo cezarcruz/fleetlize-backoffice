@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'fleet-navigation-bar',
   templateUrl: './navigation-bar.component.html',

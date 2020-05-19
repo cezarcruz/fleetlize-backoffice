@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatListModule,
     MatGridListModule,
     MatExpansionModule,
+    CoreModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
