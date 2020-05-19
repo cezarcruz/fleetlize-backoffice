@@ -1,6 +1,7 @@
-<form [formGroup]="form">
-  <mat-form-field>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="full-width">
     <mat-label>Car name</mat-label>
     <input formControlName="name" matInput type="text">
   </mat-form-field>
+  <button mat-flat-button color="primary" type="submit" [disabled]="false">Save</button>
 </form>

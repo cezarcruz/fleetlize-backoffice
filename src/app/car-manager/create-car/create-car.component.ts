@@ -16,6 +16,10 @@ export class CreateCarComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    console.log(this.form);
+  }
+
   ngOnInit(): void {
   }
 
