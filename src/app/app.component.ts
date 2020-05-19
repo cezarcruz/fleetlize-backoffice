@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'fleet-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fleetlize-backoffice';
+  mobileQuery: MediaQueryList;
+
+  constructor(media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+  }
+
 }

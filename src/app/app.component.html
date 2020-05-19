@@ -1,1 +1,38 @@
-<router-outlet></router-outlet>
+<!-- <div class="container"> -->
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Fleetlize Backoffice</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container autosize>
+
+    <mat-sidenav #snav mode="over" role="navigation">
+
+      <mat-nav-list>
+        <h2 matSubheader>Car Manager</h2>
+        <a mat-list-item [routerLink]="['/car-manager/create']"
+            (click)="snav.toggle()">
+          <mat-icon matListIcon>add</mat-icon>
+          New
+        </a>
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <mat-grid-list cols="3" rowHeight="100px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="2">
+          <div class="full-width">
+            <router-outlet></router-outlet>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="3"></mat-grid-tile>
+      </mat-grid-list>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+<!-- </div> -->
