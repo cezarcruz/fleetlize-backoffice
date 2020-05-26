@@ -8,7 +8,7 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'fleetlize-backoffice';
+  title = true;
   mobileQuery: MediaQueryList;
 
   @ViewChild('commandbarSidenav', {static: true})
