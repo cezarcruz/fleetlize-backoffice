@@ -10,11 +10,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     FlexLayoutModule,
     MatButtonModule,
     MatIconModule,

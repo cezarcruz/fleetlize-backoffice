@@ -1,50 +1,23 @@
-<fleet-navigation-bar (toggleSidenav)="navigationSidenav.toggle();"></fleet-navigation-bar>
-<mat-sidenav-container autosize>
-  <mat-sidenav #navigationSidenav mode="over" role="navigation">
+<fleet-navigation-bar (toggleSidenav)="sidenav.toggle();"></fleet-navigation-bar>
 
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <h2 class="toolbar-title">Titulo?</h2>
-      </mat-toolbar-row>
-    </mat-toolbar>
-
+<mat-sidenav-container>
+  <mat-sidenav #sidenav style="width: 175px;">
     <mat-nav-list>
-      <ng-container>
-        <h2 matSubheader>Car Manager</h2>
-
-        <a mat-list-item routerLinkActive="list-item-active">
-          <mat-icon matListIcon class="nav-list-icon">add</mat-icon>
-          New
-        </a>
-
-      </ng-container>
+      <div mat-subheader>CAR MANAGER</div>
+      <mat-list-item [routerLink]="'/car-manager/create'">
+        <mat-icon mat-list-icon routerLinkActive="active">add</mat-icon>
+        <div mat-line>New Car</div>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'/car-manager/list'">
+        <mat-icon mat-list-icon>table_chart</mat-icon>
+        <div mat-line>List</div>
+      </mat-list-item>
+      <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>
     </mat-nav-list>
-
   </mat-sidenav>
-  <mat-sidenav #commandbarSidenav position="end" mode="side" class="crm-command-bar-sidenav">
-
-    <mat-list style="padding: 10px;">
-
-      <!-- <mat-card *ngFor="let item of toolPaletteItems" style="padding: 8px; margin-bottom: 10px; text-align: center;">
-
-        <img mat-card-sm-image
-             [src]="item.icon"
-             [alt]="item.name"
-             draggable="true"
-             (dragstart)="onDragStart($event, item.id)">
-
-        <mat-card-content>
-          <mat-card-subtitle>
-            {{item.name}}
-          </mat-card-subtitle>
-        </mat-card-content>
-
-      </mat-card> -->
-
-    </mat-list>
-
-  </mat-sidenav>
-  <mat-sidenav-content role="main">
-    <router-outlet></router-outlet>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
